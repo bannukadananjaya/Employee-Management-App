@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-SpringbootBackendApplication<Springboot-backend>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "net.javaguides.springboot.SpringbootBackendApplication",
+            "projectName": "Springboot-backend",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
