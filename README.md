@@ -28,8 +28,4 @@ Make sure you have the following tools and technologies installed on your develo
 - MySQL Database: [https://www.mysql.com/](https://www.mysql.com/)
 
 ## Getting Started
-
-1. Clone the repository to your local machine:
-
-   ```shell
-   git clone https://github.com/your-username/employee-management-system.git
+Lets Start
