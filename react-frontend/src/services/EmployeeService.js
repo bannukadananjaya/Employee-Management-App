@@ -1,9 +1,10 @@
-import React, { Component } from 'react'
+import axios from "axios";
+const BaseUrl = "localhost:8000/api/v1/employees";
+class EmployeeService{
 
-export default class EmployeeService extends Component {
-  render() {
-    return (
-      <div>EmployeeService</div>
-    )
+  saveEmployee(employee){
+    return axios.post(BaseUrl,employee)
   }
 }
+
+export default EmployeeService;

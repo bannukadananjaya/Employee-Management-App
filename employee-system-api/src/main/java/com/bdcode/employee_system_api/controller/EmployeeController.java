@@ -4,13 +4,11 @@ package com.bdcode.employee_system_api.controller;
 import com.bdcode.employee_system_api.model.Employee;
 import com.bdcode.employee_system_api.services.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api/v1/")
+@CrossOrigin(origins = "http://localhost:3000")
+@RequestMapping("/api/v1/employees/")
 public class EmployeeController {
     @Autowired
     private EmployeeService employeeService;
@@ -18,7 +16,7 @@ public class EmployeeController {
     public EmployeeController(EmployeeService employeeService) {
         this.employeeService = employeeService;
     }
-    @PostMapping("save")
+    @PostMapping("employee")
     public Employee createEmployee(@RequestBody Employee employee){
         return employeeService.createEmployee(employee);
     }
