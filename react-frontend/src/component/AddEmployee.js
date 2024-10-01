@@ -16,9 +16,9 @@ function AddEmployee() {
   };
 
   const saveEmployee = (e) => {
-    // e.preventDefault();
-    // EmployeeService.saveEmployee(employee)
-    axios.post('http://localhost:8000/api/v1/employees/employee',employee)
+    e.preventDefault();
+    // EmployeeService.saveEmployee(employee);
+    axios.post('http://localhost:8080/api/v1/employees/employee',employee)
       .then((response) => {
         console.log(response);
       })
