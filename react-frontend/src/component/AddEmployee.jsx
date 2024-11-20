@@ -1,14 +1,9 @@
-import React, { useState } from "react";
-import EmployeeService from "../services/EmployeeService";
+import React, { useRef, useState } from "react";
 import axios from "axios";
 
 function AddEmployee() {
-  const [employee, setEmployee] = useState({
-    id: "",
-    firstName: "",
-    lastName: "",
-    emailId: "",
-  });
+  const ref = useRef();
+  const [employee, setEmployee] = useState({});
 
   const handleChange = (e) => {
     const value = e.target.value;
@@ -20,12 +15,16 @@ function AddEmployee() {
     // EmployeeService.saveEmployee(employee);
     axios.post('http://localhost:8080/api/v1/employees/employee',employee)
       .then((response) => {
-        console.log(response);
+        console.log(response.data);
+        alert("Add employee Successfully");
+        setEmployee({firstName: '', lastName: '', email: ''});
       })
       .catch((error) => {
         console.log(error);
       });
   };
+
+  console.log(employee);
   return (
     <div className="flex flex-col max-w-2xl mx-auto shadow border-b">
       <div className="px-4 py-4">
@@ -40,6 +39,7 @@ function AddEmployee() {
             type="text"
             name="firstName"
             value={employee.firstName}
+            ref={ref}
             onChange={(e) => handleChange(e)}
             className="h-10 w-96 border px-2 py-2"
           ></input>
@@ -63,7 +63,7 @@ function AddEmployee() {
           <input
             type="email"
             name="email"
-            value={employee.eamilId}
+            value={employee.email}
             onChange={(e) => handleChange(e)}
             className="h-10 w-96 border px-2 py-2"
           ></input>
@@ -75,7 +75,9 @@ function AddEmployee() {
           >
             Save
           </button>
-          <button className="rounded font-semibold text-white bg-red-400 hover:bg-red-700 px-6 py-2">
+          <button 
+            onClick={()=> {setEmployee({firstName: '', lastName: '', email: ''});ref.current.focus(); }}
+            className="rounded font-semibold text-white bg-red-400 hover:bg-red-700 px-6 py-2">
             Clear
           </button>
         </div>

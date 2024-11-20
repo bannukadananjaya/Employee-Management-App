@@ -1,18 +1,15 @@
-import React from 'react'
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+import ListEmployeeComponent from "../component/ListEmployeeComponent";
 // import { useNavigate } from 'react-router-dom'
-import Navbar from '../component/Navbar'
-import EmployeeList from '../services/EmployeeService';
 
 function Home() {
-    // const navigate = useNavigate();
 
-  return (
+  return(
     <div>
-        <Navbar/>
-        <a href="/AddEmployee" className='btn btn-primary'>Add Employee</a>
-        {/* <EmployeeList/> */}
+      <ListEmployeeComponent/>
     </div>
   )
 }
 
-export default Home
+export default Home;

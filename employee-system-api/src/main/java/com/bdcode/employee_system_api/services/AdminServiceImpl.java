@@ -28,4 +28,10 @@ public class AdminServiceImpl implements AdminService{
     public void deleteAdmin() {
 
     }
+
+    @Override
+    public Admin getAdmin() {
+
+        return null;
+    }
 }
